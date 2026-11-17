@@ -1,0 +1,53 @@
+print("===== MORSE CODE DECODER =====")
+
+morse = {
+    'A': '.-',    'B': '-...',  'C': '-.-.',
+    'D': '-..',   'E': '.',     'F': '..-.',
+    'G': '--.',   'H': '....',  'I': '..',
+    'J': '.---',  'K': '-.-',   'L': '.-..',
+    'M': '--',    'N': '-.',    'O': '---',
+    'P': '.--.',  'Q': '--.-',  'R': '.-.',
+    'S': '...',   'T': '-',     'U': '..-',
+    'V': '...-',  'W': '.--',   'X': '-..-',
+    'Y': '-.--',  'Z': '--..',
+
+    '0': '-----', '1': '.----', '2': '..---',
+    '3': '...--', '4': '....-', '5': '.....',
+    '6': '-....', '7': '--...', '8': '---..',
+    '9': '----.',
+
+    '.': '.-.-.-', ',': '--..--',
+    '?': '..--..', '!': '-.-.--'
+}
+
+# Reverse the dictionary
+decoder = {}
+
+for character, code in morse.items():
+    decoder[code] = character
+
+sentence = input("Enter Morse Code: ")
+
+words = sentence.strip().split(" / ")
+
+result = ""
+
+for word in words:
+
+    letters = word.split()
+
+    for code in letters:
+
+        if code in decoder:
+            result += decoder[code]
+
+        else:
+            result += "?"
+
+    result += " "
+
+print("\n===== DECODING RESULT =====")
+print("Morse Code:", sentence)
+print("Decoded Sentence:", result.strip())
+
+print("\nDecoding completed!")
